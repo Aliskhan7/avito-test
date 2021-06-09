@@ -1,12 +1,15 @@
 import React from 'react';
 import Images from "./Images";
-import ImagesBig from "./ImagesBig";
+import Modal from "./Modal";
+import {Route} from "react-router-dom";
 
 function Main(props) {
     return (
         <div className='main-content'>
             <Images/>
-            <ImagesBig/>
+            <Route path="/:id?">
+                <Modal/>
+            </Route>
         </div>
     );
 }

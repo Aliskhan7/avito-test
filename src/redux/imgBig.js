@@ -3,7 +3,7 @@ const initialState = {
     loading: false
 }
 
-const imgBigReducer =(state = initialState, action) =>{
+const imgBigReducer = (state = initialState, action) =>{
     switch (action.type){
         case 'imgBig/load/start':
             return{

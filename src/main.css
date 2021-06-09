@@ -25,6 +25,57 @@ body{
     row-gap: 15px;
     column-gap: 15px;
 }
+.modal__block{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 17px 11px rgba(34, 60, 80, 0.3);
+}
+.modal_photos {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
+.modal_photos__add{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+}
+.modal_photos__add input{
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+}
+.modal_comments{
+    width: 50%;
+    padding-left: 15px;
+}
+.btnAdd{
+    background: #4f49f6;
+    border: 1px solid #4f49f6;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
 
 .footer{
     position: absolute;
