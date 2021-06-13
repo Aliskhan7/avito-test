@@ -4,13 +4,14 @@ import thunk from "redux-thunk";
 import imgReducer from "./img";
 import imgBigReducer from "./imgBig";
 
+
 const logger = createLogger({
     diff: true,
     collapsed: true
 })
 const rootReducer = combineReducers({
     img: imgReducer,
-    imgBig: imgBigReducer
+    imgBig: imgBigReducer,
 })
 const store = createStore(rootReducer, applyMiddleware(thunk, logger))
 

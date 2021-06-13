@@ -1,6 +1,7 @@
 const initialState = {
-    items: [],
-    loading: false
+    items: {},
+    loading: false,
+    loadingCom: false
 }
 
 const imgBigReducer = (state = initialState, action) =>{
@@ -16,6 +17,26 @@ const imgBigReducer = (state = initialState, action) =>{
                 items: action.payload,
                 loading: false
             }
+
+        case 'comments/load/start':
+            return {
+                ...state,
+                loadingCom: true,
+            }
+        case 'comments/load/success':{
+            return {
+                ...state,
+                loadingCom: false,
+                items: {
+                    ...state.items,
+                    comments: [
+                        ...state.items.comments,
+                        {text: action.text, name: action.name}
+                    ]
+                }
+            }
+        }
+
         default:
             return state
     }

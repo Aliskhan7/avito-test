@@ -24,3 +24,27 @@ export const loadImgBig = (id) => {
             })
     }
 }
+export const updateCom = (id, text, name) =>{
+    return dispatch =>{
+        dispatch({
+            type: 'comments/load/start'
+        })
+        fetch(`https://boiling-refuge-66454.herokuapp.com/images/${id}/comments`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify({
+                text: text,
+                name: name,
+            }),
+            })
+            .then(()=>
+                dispatch({
+                    type: 'comments/load/success',
+                    text: text,
+                    name: name,
+                }))
+
+    }
+}
