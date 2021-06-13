@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading';
 function Images(props) {
     const imgs = useSelector(state => state.img.items)
     const loading = useSelector(state => state.img.loading);
+
     return (
         <div className='main-content-item'>
             {

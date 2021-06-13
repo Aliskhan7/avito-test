@@ -8,7 +8,6 @@ import Comments from "./Comments";
 function Modal(props) {
     const modal = useSelector(state => state.imgBig.items);
     const loading = useSelector(state => state.imgBig.loading);
-    const loadingCom = useSelector(state => state.imgBig.loadingCom);
     const dispatch = useDispatch();
     const id = useParams().id;
 
@@ -33,13 +32,12 @@ function Modal(props) {
     }
 
     return (
+        loading ? (
+            <div className="loading-modal">
+                <ReactLoading type='spin' color='#0044ff' height={50} width={50}/>
+            </div>
+        ) : (
             <div className='modal__block'>
-                {
-                    loading ? (
-                        <div className="loading">
-                            <ReactLoading type='spin' color='#0044ff' height={50} width={50}/>
-                        </div>
-                    ) : (
                         <div className='modal'>
                             <div className='modal_photos'>
                                 <img src={modal.url} alt=""/>
@@ -61,41 +59,19 @@ function Modal(props) {
                                     </button>
                                 </div>
                             </div>
-                            {loadingCom ? (
-                                <div className="loading">
-                                    <ReactLoading type='spin' color='#0044ff' height={50} width={50}/>
-                                </div>
-                                ): (
                                 <div className='modal_comments'>
                                     {modal.comments !== undefined ? (modal.comments.map((item,id)=>{
                                         return <Comments item={item} id={id} key={id}/>
                                     })) : (<div>Комментариев нет</div>)}
 
-                                    {/*<div>*/}
-                                    {/*    { modal.comments?.map(item => {*/}
-                                    {/*        return (*/}
-                                    {/*            <div>*/}
-                                    {/*                <p>{item.name}</p>*/}
-                                    {/*                <p>{item.text}</p>*/}
-                                    {/*            </div>*/}
-                                    {/*        )*/}
-                                    {/*    })}*/}
-                                    {/*</div>*/}
-                                    {/*<div>*/}
-                                    {/*    {modal.text?.map(item =>{*/}
-                                    {/*        return <p>{item.text}</p>*/}
-                                    {/*    })}*/}
-                                    {/*</div>*/}
-                                    <div>
-                                        <NavLink to='/' activeClassName="selected">X</NavLink>
-                                    </div>
                                 </div>
-                            )
-                            }
+                            <div>
+                                <NavLink to='/' activeClassName="selected">×</NavLink>
+                            </div>
                         </div>
-                    )
-                }
+
             </div>
+        )
     )
 }
 

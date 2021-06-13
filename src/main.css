@@ -4,19 +4,32 @@
     box-sizing: border-box;
 }
 body{
-    width: 1000px;
+    font-family: 'Roboto', sans-serif;
     margin: auto;
 }
 .header{
-    margin: auto;
+    margin: 10px auto;
     text-align: center;
     font-size: 36px;
     text-transform: uppercase;
     padding: 15px 0 30px 0;
 }
-.main-content{
+.loading-modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.container{
+    max-width: 1000px;
+    overflow: hidden;
+    min-height: 100vh;
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin: auto;
 }
 .main-content-item{
     display: flex;
@@ -24,12 +37,14 @@ body{
     justify-content: center;
     row-gap: 15px;
     column-gap: 15px;
+    margin: 0 auto 100px;
 }
 .modal__block{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +62,7 @@ body{
 .modal_photos {
     display: flex;
     flex-direction: column;
-    max-width: 60%;
+    max-width: 55%;
 }
 .modal_photos__add{
     display: flex;
@@ -64,8 +79,27 @@ body{
     border: 1px solid #a5a5a5;
 }
 .modal_comments{
-    width: 50%;
+    width: 100%;
     padding-left: 15px;
+}
+.selected{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    color: #fa3434;
+    font-weight: 800;
+    font-size: 24px;
+}
+.comments{
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.3);
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+.comments .name{
+    font-size: 14px;
+    color: #cbcaca;
 }
 .btnAdd{
     background: #4f49f6;
@@ -89,4 +123,23 @@ body{
     text-align: center;
     border-top: 1px solid #CCCCCC;
     padding-top: 10px;
+}
+
+@media screen and (max-width: 689px){
+    .modal__block {
+        max-width: 100%;
+    }
+    .modal_comments {
+        padding: 0;
+    }
+    .modal_photos{
+        max-width: 100%;
+    }
+    .modal{
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-content-item{
+        flex-direction: column;
+    }
 }

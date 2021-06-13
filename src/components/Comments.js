@@ -7,18 +7,18 @@ function Comments(props) {
     return (
         loadingCom ? (
             <div className="loading">
-                <ReactLoading type='spin' color='#0044ff' height={50} width={50}/>
+                <ReactLoading type='spin' color='#0044ff' height={16} width={16}/>
             </div>
             ):(
-                    <div className="comments">
-                    <div className="author">
+                <div className="comments">
                         <div className="name">
+                            Имя: <br/>
                             {props.item.name}
                         </div>
                         <div className="text">
+                            Комментарий:<br/>
                             {props.item.text}
                         </div>
-                    </div>
                 </div>
             )
     );

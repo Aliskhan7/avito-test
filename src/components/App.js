@@ -1,11 +1,12 @@
-import Main from "./Main";
 import Header from "./Header";
 import Footer from "./Footer";
 import {Route} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {loadImg} from "../redux/actions";
 import '../main.css'
+import Modal from "./Modal";
+import Images from "./Images";
 
 
 function App() {
@@ -16,13 +17,16 @@ function App() {
     },[])
 
   return (
-      <Route path='/:id?'>
           <div>
-              <Header/>
-              <Main/>
-              <Footer/>
+              <div className="container">
+                  <Header/>
+                  <Images/>
+                  <Footer/>
+              </div>
+              <Route path="/modal/:id?">
+                  <Modal/>
+              </Route>
           </div>
-      </Route>
 
   );
 }
